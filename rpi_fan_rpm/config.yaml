@@ -1,0 +1,28 @@
+name: Fan RPM Monitor
+version: "1.0.0"
+slug: fan_rpm
+description: Leest fan RPM via GPIO (tach) en publiceert via MQTT (EMQX)
+startup: services
+boot: auto
+host_network: true
+privileged: true
+
+options:
+  gpio_pin: 23
+  mqtt_host: "a0d7b954-emqx"
+  mqtt_port: 1883
+  mqtt_topic: "home/fan/rpm"
+  pulses_per_rev: 2
+  pigpio_host: "a0d7b954-pigpio"
+  pigpio_port: 8888
+  update_interval: 2
+
+schema:
+  gpio_pin: int
+  mqtt_host: str
+  mqtt_port: int
+  mqtt_topic: str
+  pulses_per_rev: int
+  pigpio_host: str
+  pigpio_port: int
+  update_interval: int
